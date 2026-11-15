@@ -1,19 +1,36 @@
-apply from: './../config.gradle'
-apply plugin: 'com.android.library'
+apply from: './../config.gradle'
+apply plugin: 'com.android.library'
 android {
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
-    }
-    namespace 'com.ansolm.wifimanager'
-    compileSdk = 37
-    defaultConfig {
-        minSdk = 21
-        targetSdk = 37
-        versionCode buidConfig.versionCode
-        versionName buidConfig.versionName
-    }
+    publishing {
+        singleVariant('release')
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    namespace 'com.ansolm.wifimanager'
+    compileSdk = 37
+    defaultConfig {
+        minSdk = 21
+        targetSdk = 37
+        versionCode buidConfig.versionCode
+        versionName buidConfig.versionName
+    }
+}
+dependencies {
+    compileOnly dependent.appcompat
 }
-dependencies {
-    compileOnly dependent.appcompat
+apply plugin: 'maven-publish'
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                groupId = 'com.github.ansolm'
+                artifactId = 'wifimanager'
+                version = '1.0.2'
+                from components.release
+            }
+        }
+    }
 }
