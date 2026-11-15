@@ -1,4 +1,4 @@
-package com.iwdael.wifimanager;
+package com.ansolm.wifimanager;
 
 public enum State {
     ENABLING,ENABLED,DISABLING,DISABLED,UNKNOWN

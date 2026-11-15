@@ -1,4 +1,4 @@
-package com.iwdael.wifimanager;
+package com.ansolm.wifimanager;
 
 import android.content.Context;
 

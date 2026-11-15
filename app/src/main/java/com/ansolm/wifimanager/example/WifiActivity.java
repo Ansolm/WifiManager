@@ -1,4 +1,4 @@
-package com.iwdael.wifimanager.example;
+package com.ansolm.wifimanager.example;
 
 import androidx.appcompat.app.AppCompatActivity;
 

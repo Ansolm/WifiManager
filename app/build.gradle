@@ -1,12 +1,16 @@
 apply from: './../config.gradle'
 apply plugin: 'com.android.application'
 android {
-    buildToolsVersion buidConfig.buildToolsVersion
-    compileSdkVersion buidConfig.compileSdkVersion
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    namespace 'com.ansolm.wifimanager.example'
+    compileSdk = 37
     defaultConfig {
-        applicationId "com.iwdael.wifimanager.example"
-        minSdkVersion buidConfig.minSdkVersion
-        targetSdkVersion buidConfig.targetSdkVersion
+        applicationId "com.ansolm.wifimanager.example"
+        minSdk = 21
+        targetSdk = 37
         versionCode buidConfig.versionCode
         versionName buidConfig.versionName
     }
